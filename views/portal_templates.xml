@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_feature_disabled" name="Feature Disabled">
+        <t t-call="portal.portal_layout">
+            <t t-set="additional_title">Feature Not Available</t>
+            <div class="container mt-5">
+                <div class="alert alert-warning text-center" role="alert">
+                    <h3 class="alert-heading">
+                        <i class="fa fa-exclamation-triangle"></i> Feature Not Available
+                    </h3>
+                    <p class="mb-3">You don't have permission to use this feature. Only the Tickets feature is currently enabled. To enable this feature, please contact our team <a href="mailto:info@infinityitsuccess.com">info@infinityitsuccess.com</a>.</p>
+                    <hr/>
+                    <!-- <a href="/my/tickets" class="btn btn-primary">
+                        <i class="fa fa-ticket"></i> Go to Tickets
+                    </a> -->
+                    <a href="/my/home" class="btn btn-secondary ml-2">
+                        <i class="fa fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </t>
+    </template>
+    <data>
+        <!-- Portal home page layout - Add FAQs button -->
+        <template id="custom_portal_home" inherit_id="portal.portal_my_home" priority="510">
+            <xpath expr="//div[@id='portal_common_category']" position="inside">
+                <!-- Add FAQs card -->
+                <div class="o_portal_index_card col-md-6">
+                    <a href="/faqs" title="FAQs" class="d-flex justify-content-start gap-2 gap-md-3 align-items-center py-3 pe-2 px-md-3 h-100 rounded text-decoration-none text-reset text-bg-light">
+                        <div class="o_portal_icon align-self-start">
+                            <img data-oe-model="ir.ui.view" data-oe-id="524" data-oe-field="arch" data-oe-xpath="/t[1]/div[1]/a[1]/div[1]/img[1]" src="/portal/static/src/img/portal-connection.svg" loading="lazy" style=""></img>
+                        </div>
+                        <div>
+                            <h5 class="mt-0 mb-1 d-flex gap-2">
+                                <span>FAQs</span>
+                            </h5>
+                            <p class="m-0 text-600">
+                                Frequently Asked Questions
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </xpath>
+        </template>
+        
+        <template id="portal_ticket_form" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="51">
+            <xpath expr="//div[@id='portal_service_category']" position="inside">
+                <div class="o_portal_index_card col-md-6">
+                    <a href="/" title="FAQs" class="d-flex justify-content-start gap-2 gap-md-3 align-items-center py-3 pe-2 px-md-3 h-100 rounded text-decoration-none text-reset text-bg-light">
+                        <div class="o_portal_icon align-self-start">
+                            <img data-oe-model="ir.ui.view" data-oe-id="524" data-oe-field="arch" data-oe-xpath="/t[1]/div[1]/a[1]/div[1]/img[1]" src="/helpdesk/static/src/img/tickets.svg" loading="lazy" style=""></img>
+                        </div>
+                        <div>
+                            <h5 class="mt-0 mb-1 d-flex gap-2">
+                                <span>Submit Ticket</span>
+                            </h5>
+                            <p class="m-0 text-600">
+                                Submit a new support ticket
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </xpath>
+        </template>
+    </data>
+    
+    <!-- Portal layout: FAQs breadcrumb menu entries -->
+    <!-- <data name="Portal layout : FAQs menu entries" inherit_id="portal.portal_breadcrumbs" priority="50">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'faqs'" t-attf-class="breadcrumb-item active">
+                <t>FAQs</t>
+            </li>
+        </xpath>
+    </data> -->
+</odoo>
