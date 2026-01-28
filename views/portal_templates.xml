@@ -43,7 +43,7 @@
             </xpath>
         </template>
         
-        <template id="portal_ticket_form" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="51">
+        <!-- <template id="portal_ticket_form" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="51">
             <xpath expr="//div[@id='portal_service_category']" position="inside">
                 <div class="o_portal_index_card col-md-6">
                     <a href="/" title="FAQs" class="d-flex justify-content-start gap-2 gap-md-3 align-items-center py-3 pe-2 px-md-3 h-100 rounded text-decoration-none text-reset text-bg-light">
@@ -58,6 +58,17 @@
                                 Submit a new support ticket
                             </p>
                         </div>
+                    </a>
+                </div>
+            </xpath>
+        </template> -->
+
+        <!-- Add Submit Ticket button to tickets list page -->
+        <template id="portal_tickets_list_submit_button" inherit_id="helpdesk.portal_helpdesk_ticket" priority="52">
+            <xpath expr="//t[@t-call='portal.portal_searchbar']" position="after">
+                <div class="mb-3">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fa fa-plus"></i> Submit New Ticket
                     </a>
                 </div>
             </xpath>
