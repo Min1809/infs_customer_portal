@@ -43,7 +43,7 @@
             </xpath>
         </template>
         
-        <template id="portal_ticket_form" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="51">
+        <!-- <template id="portal_ticket_form" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="51">
             <xpath expr="//div[@id='portal_service_category']" position="inside">
                 <div class="o_portal_index_card col-md-6">
                     <a href="/" title="FAQs" class="d-flex justify-content-start gap-2 gap-md-3 align-items-center py-3 pe-2 px-md-3 h-100 rounded text-decoration-none text-reset text-bg-light">
@@ -58,6 +58,30 @@
                                 Submit a new support ticket
                             </p>
                         </div>
+                    </a>
+                </div>
+            </xpath>
+        </template> -->
+
+        <!-- Update Tickets card title on home page -->
+        <template id="portal_tickets_home_title" inherit_id="helpdesk.portal_my_home_helpdesk_ticket" priority="60">
+            <xpath expr="//div[@id='portal_service_category']//t[@t-call='portal.portal_docs_entry'][.//t[@t-set='url'][@t-value=&quot;'/my/tickets'&quot;]]" position="replace">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon" t-value="'/helpdesk/static/src/img/tickets.svg'"/>
+                    <t t-set="title">Trace/Submit Ticket</t>
+                    <t t-set="text">Follow all your helpdesk tickets</t>
+                    <t t-set="url" t-value="'/my/tickets'"/>
+                    <t t-set="placeholder_count" t-value="'ticket_count'"/>
+                </t>
+            </xpath>
+        </template>
+
+        <!-- Add Submit Ticket button to tickets list page -->
+        <template id="portal_tickets_list_submit_button" inherit_id="helpdesk.portal_helpdesk_ticket" priority="52">
+            <xpath expr="//t[@t-call='portal.portal_searchbar']" position="after">
+                <div class="mb-3">
+                    <a href="/helpdesk" class="btn btn-primary">
+                        <i class="fa fa-plus"></i> Submit New Ticket
                     </a>
                 </div>
             </xpath>

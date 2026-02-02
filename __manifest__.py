@@ -14,7 +14,7 @@
         # 'security/ir.model.access.csv',
         'views/portal_templates.xml',
     ],
-    'icon': '/infs_project/static/description/icon.png',
+    'icon': '/infs_customer_portal/static/description/icon.png',
     'installable': True,
     'auto_install': False,
     'license': 'LGPL-3',
