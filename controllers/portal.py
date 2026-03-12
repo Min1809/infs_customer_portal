@@ -31,13 +31,13 @@ class CustomPortal(CustomerPortal):
         return self._show_feature_disabled_message()
     
     # Customer Invoices
-    @http.route(['/my/invoices', '/my/invoices/page/<int:page>'], type='http', auth="user", website=True)
-    def portal_my_invoices(self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw):
-        return self._show_feature_disabled_message()
+    # @http.route(['/my/invoices', '/my/invoices/page/<int:page>'], type='http', auth="user", website=True)
+    # def portal_my_invoices(self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw):
+    #     return self._show_feature_disabled_message()
     
-    @http.route(['/my/invoices/<int:invoice_id>'], type='http', auth="public", website=True)
-    def portal_my_invoice_detail(self, invoice_id, access_token=None, report_type=None, download=False, **kw):
-        return self._show_feature_disabled_message()
+    # @http.route(['/my/invoices/<int:invoice_id>'], type='http', auth="public", website=True)
+    # def portal_my_invoice_detail(self, invoice_id, access_token=None, report_type=None, download=False, **kw):
+    #     return self._show_feature_disabled_message()
     
     # Vendor Bills (Our Invoices)
     @http.route(['/my/bills', '/my/bills/page/<int:page>'], type='http', auth="user", website=True)
